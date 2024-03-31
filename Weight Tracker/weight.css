@@ -1,0 +1,60 @@
+* {
+    font-family: Teko;
+}
+body {
+    background-color: rgb(209, 204, 204);
+}
+.card{
+    background-color: rgb(46, 46, 46);
+    color: white;
+    width: 400px;
+    border-radius: 20px;
+    height: 600px;
+    text-align: center;
+    margin: 0 auto;
+}
+.header{
+    background: linear-gradient(rgb(27, 70, 210),blue);
+    color: black;
+    height: 90px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border: 2px solid black;
+    padding-bottom: 10px;
+}
+.header h1{
+    font-size: 40px;
+    font-weight: 700;   
+}
+#weightButton {
+   height: 80px;
+   width: 200px;
+   font-size: 50px;
+   text-align: center;
+   border-radius: 6px;
+   border: 1px solid black;
+   margin-top: 60px;
+}
+#caloriesButton {
+    height: 80px;
+    width: 200px;
+    font-size: 50px;
+    text-align: center;
+    border-radius: 6px;
+    border: 1px solid black;
+    margin-top: 60px;
+}
+#Submit {
+    cursor: pointer;
+    margin-top: 50px;
+    height: 100px;
+    width: 300px;
+    border-radius: 6px;
+    border: 1px solid black;
+    font-size: 35px;
+    background: linear-gradient(rgb(27, 70, 210),blue);
+}
+#Submit:hover {
+    background: black;
+    color: white;
+}
