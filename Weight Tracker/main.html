@@ -5,15 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weight Tracker</title>
     <link rel="stylesheet" href="weight.css">
-    <script src="weight.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="card">
+
+<!-- FIRST CARD -->
+
+    <div class="welcomeCard" id="welcomeCard">
+        <div class="welcomeHeader">
+            <h1>Do you want to Gain Weight or Lose Weight?</h1>
+        </div>
+        <div class="goalChoice">
+            <div class="weightloss">
+                <input type="radio" name="goal" id="lossradio">
+                <label for="weightloss">I want to <span class="underline">LOSE</span> Weight</label>
+            </div>
+            <div class="weightgain">
+                <input type="radio" name="goal" id="gainradio">
+                <label for="weightgain">I want to <span class="underline">GAIN</span> Weight</label>
+            </div>
+        </div>
+    </div>
+
+<!-- SECOND CARD -->
+
+    <div class="goalsetcard" id="goalsetcard">
+        <div class="goalHeader">
+            <h1>What is your Current & Goal Weight?</h1>
+        </div>
+        <div class="weightgoals">
+            <div class="start">
+                <label for="starting">Current Weight</label>
+                <input type="number" name="starting" id="startinginput">
+            </div>
+            <div class="goal">
+                <label for="end">Goal Weight</label>
+                <input type="number" name="end" id="goalinput">
+            </div>
+        </div>
+        <div class="notice">
+            <p><em>Don't worry, you can change your mind later on!</em></p>
+        </div>
+        <div>
+            <button id="goalsetbtn">Start your Journey!</button>
+        </div>
+    </div>
+
+<!-- THIRD CARD -->
+
+    <div class="card" id="card">
         <div class="header">
-            <h1>01.02.2024</h1>
+            <h1>Daily Weigh in</h1>
         </div>
         <div class="weight">
             <div class="weightbtn">
@@ -27,7 +71,9 @@
         </div>
         <div class="submit">
             <button id="Submit">Submit for Today</button>
-        </div>
     </div>
 </body>
+<script src="weight.js"></script>
+</html>
+
 </html>
