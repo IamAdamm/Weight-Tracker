@@ -2,59 +2,209 @@
     font-family: Teko;
 }
 body {
-    background-color: rgb(209, 204, 204);
+    background-color: rgb(35, 35, 35);
 }
-.card{
-    background-color: rgb(46, 46, 46);
+input[type='number'] {
+    -moz-appearance: textfield;
+}
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* FIRST CARD */
+
+.welcomeCard{
+    background: linear-gradient(lightblue, blue);
     color: white;
-    width: 400px;
+    width: 550px;
     border-radius: 20px;
     height: 600px;
     text-align: center;
     margin: 0 auto;
+    border: 2px solid black;
+}
+.welcomeHeader{
+    background: linear-gradient(lightblue);
+    color: rgb(255, 255, 255);
+    height: 90px;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    padding-left: 10px;
+}
+.weightloss{
+    display: flex;
+    flex-direction: column-reverse;
+    font-size: 45px;
+    margin-top: 60px;
+    padding-bottom: 75px;
+    align-items: center;
+}
+.weightgain{
+    font-size: 45px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+input[type="radio"] {
+    width: 20px; 
+    height: 20px;
+}
+
+/* SECOND CARD */
+
+.goalsetcard {
+    background: linear-gradient(lightblue, blue);
+    color: white;
+    width: 550px;
+    border-radius: 20px;
+    height: 600px;
+    text-align: center;
+    margin: 0 auto;
+    border: 2px solid black;
+    justify-content: center;
+}
+
+.goalHeader {
+    background: linear-gradient(lightblue);
+    color: rgb(255, 255, 255);
+    height: 90px;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    padding-bottom: 10px;
+    font-size: 23px;
+    font-weight: 700;
+}
+.weightgoals {
+    margin-top: 90px;
+    font-size: 50px;
+    display: flex;
+    flex-direction:row;
+    align-items: flex-start;
+}
+.notice {
+    margin-top: 30px;
+    margin-bottom: 40px;
+    font-size: 20px;
+}
+.weightgoals input{
+    height: 55px;
+    width: 200px;
+    font-size: 40px;
+    text-align: center;
+}
+#goalsetbtn{
+    font-family:'Times New Roman', Times, serif;
+    cursor: pointer;
+    height: 100px;
+    width: 300px;
+    border-radius: 50px;
+    border: 1px solid rgb(0, 0, 0);
+    font-size: 30px;
+    font-weight: bolder;
+    background: rgb(255, 255, 255);
+    color: rgb(31, 31, 31);
+}
+#goalsetbtn:hover{
+    background: black;
+    color: white;
+}
+
+/* THIRD CARD */
+
+.card{
+    background: linear-gradient(lightblue, blue);
+    color: white;
+    width: 550px;
+    border-radius: 20px;
+    height: 600px;
+    text-align: center;
+    margin: 0 auto;
+    border: 2px solid black;
 }
 .header{
-    background: linear-gradient(rgb(27, 70, 210),blue);
-    color: black;
+    background: linear-gradient(lightblue);
+    color: rgb(255, 255, 255);
     height: 90px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    border: 2px solid black;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
     padding-bottom: 10px;
 }
 .header h1{
-    font-size: 40px;
+    font-size: 60px;
     font-weight: 700;   
 }
 #weightButton {
-   height: 80px;
-   width: 200px;
+   height: 85px;
+   width: 400px;
    font-size: 50px;
    text-align: center;
-   border-radius: 6px;
+   border-radius: 25px;
    border: 1px solid black;
-   margin-top: 60px;
+   margin-top: 40px;
 }
 #caloriesButton {
-    height: 80px;
-    width: 200px;
+    height: 85px;
+    width: 400px;
     font-size: 50px;
     text-align: center;
-    border-radius: 6px;
+    border-radius: 25px;
     border: 1px solid black;
-    margin-top: 60px;
+    margin-top: 50px;
 }
 #Submit {
+    font-family:'Times New Roman', Times, serif;
     cursor: pointer;
     margin-top: 50px;
     height: 100px;
     width: 300px;
-    border-radius: 6px;
-    border: 1px solid black;
-    font-size: 35px;
-    background: linear-gradient(rgb(27, 70, 210),blue);
+    border-radius: 50px;
+    border: 1px solid rgb(0, 0, 0);
+    font-size: 30px;
+    font-weight: bolder;
+    background: rgb(255, 255, 255);
+    color: rgb(31, 31, 31);
 }
 #Submit:hover {
     background: black;
     color: white;
+}
+
+/* ANIMATIONS & CLASSES */
+
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
+.invalid {
+    border: 4px solid red !important;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    75% {
+        transform: translateX(-5px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+.hidden {
+    display: none;
+}
+.underline {
+    text-decoration: underline;
+    color: rgb(237, 21, 21);
+    font-size: 60px;
 }
