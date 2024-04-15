@@ -72,6 +72,7 @@ function setGoal(){
         startingWeight.push(startinginputValue)
         secondCard.classList.add('hidden')
         thirdCard.classList.remove('hidden')
+        document.getElementById("goalweightdisplay").innerHTML = 'Goal Weight: ' + goalinputValue + ' kg';
 }
 }
 
@@ -121,10 +122,6 @@ setInterval(() => {
     counter += 1;
     progress.innerHTML = counter + '%'
 }},30.77)
-
-//Progress card goal weight display
-document.getElementById("goalweightdisplay").innerHTML = goalinputValue;
-
 
 //Events
 gainradio.addEventListener('click', goal)
