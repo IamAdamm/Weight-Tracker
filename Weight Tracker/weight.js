@@ -27,7 +27,6 @@ thirdCard.classList.add('hidden')
 secondCard.classList.add('hidden')
 fourthCard.classList.add('hidden')
 
-
 //button function for first card
 function goal(){
     if(gainradio.checked || lossradio.checked) {
