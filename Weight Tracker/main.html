@@ -37,16 +37,15 @@
         </div>
         <div class="weightgoals">
             <div class="start">
-                <label for="starting">Current Weight</label>
-                <input type="number" name="starting" id="startinginput">
+                <input type="number" name="starting" id="startinginput"
+                placeholder="Current Weight">
             </div>
             <div class="goal">
-                <label for="end">Goal Weight</label>
-                <input type="number" name="end" id="goalinput">
+                <input type="number" name="end" id="goalinput" placeholder="Goal Weight">
             </div>
         </div>
         <div class="notice">
-            <p><em>Don't worry, you can change your mind later on!</em></p>
+            <p><u><em>Don't worry, you can change your mind later on!</em></u></p>
         </div>
         <div>
             <button id="goalsetbtn">Start your Journey!</button>
@@ -80,25 +79,34 @@
         <div class="header">
             <h1>Progress</h1>
         </div>
-    <div class="progressbar">
-        <div class="outer">
-            <div class="inner">
-                <div class="progress" id="progress"></div>
-            </div>
+        <div class="startweightdisplay">
+            <h2 id="startweightdisplay"></h2>
         </div>
-        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
-                <defs>
-                <linearGradient id="GradientColor">
-                    <stop offset="0%" stop-color="#e91e63" />
-                    <stop offset="100%" stop-color="#673ab7" />
-                </linearGradient>
-                </defs>
-                <circle cx="80" cy="80" r="70" stroke-linecap="round" />
-        </svg>
-    </div>
-    <div class="goalweightdisplay">
-        <h2 id="goalweightdisplay">Goal Weight: 30kg</h2>
-    </div>
+        <div class="goalweightdisplay">
+            <h2 id="goalweightdisplay"></h2>
+        </div>
+        <div class="progressbar">
+            <div class="outer">
+                <div class="inner">
+                    <div class="progress" id="progress"></div>
+                </div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                    <defs>
+                    <linearGradient id="GradientColor">
+                        <stop offset="0%" stop-color="#e91e63" />
+                        <stop offset="100%" stop-color="#673ab7" />
+                    </linearGradient>
+                    </defs>
+                    <circle id= 'circle' cx="80" cy="80" r="70" stroke-linecap="round" />
+            </svg>
+        </div>
+        <div class="maintenancecalories">
+            <div class="warning">
+                <h4>(Do Not Exceed Limit for Weight Loss)</h4>
+            </div>
+            <h2 id="maintenancecalories">Caloric Limit: 2000kcal</h2>
+        </div>
     </div>
 
 </body>
