@@ -22,7 +22,7 @@ input[type = 'radio']{
 /* FIRST CARD */
 
 .welcomeCard{
-    background: linear-gradient(to bottom right, #3C4655, #4286ff);
+    background: linear-gradient(to bottom right, #bdc3c7a4, #2c3e50);
     color: white;
     width: 550px;
     border-radius: 20px;
@@ -52,7 +52,7 @@ input[type = 'radio']{
     padding-bottom: 5px;
     align-items: center;
     margin-bottom: 20px;
-    transition: transform 1s;
+    transition: transform .3s;
 }
 .weightgain{
     position: relative;
@@ -61,7 +61,7 @@ input[type = 'radio']{
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
-    transition: transform 1s;
+    transition: transform .3s;
 }
 .weightloss:hover {
     transform: translateY(-5px);
@@ -78,7 +78,7 @@ input[type = 'radio']{
     background-color: rgb(1, 255, 17);
     width: 0;
     height: 3px;
-    bottom: 13px;
+    bottom: 12px;
     transition: all .3s;
 }
 .weightgain:hover::after{
@@ -100,7 +100,7 @@ input[type = 'radio']{
 /* SECOND CARD */
 
 .goalsetcard {
-    background: linear-gradient(to bottom right, #3C4655, #4286ff);
+    background: linear-gradient(to bottom right, #bdc3c7a4, #2c3e50);
     color: white;
     width: 550px;
     border-radius: 20px;
@@ -121,7 +121,7 @@ input[type = 'radio']{
     font-weight: 700;
 }
 .weightgoals {
-    margin-top: 90px;
+    margin-top: 60px;
     font-size: 50px;
     display: flex;
     flex-direction:row;
@@ -133,10 +133,14 @@ input[type = 'radio']{
     font-size: 20px;
 }
 .weightgoals input{
-    height: 55px;
+    height: 65px;
     width: 200px;
     font-size: 40px;
     text-align: center;
+    border-radius: 12%;
+    margin-right: 16px;
+    margin-left: 40px;
+    margin-top: 60px;
 }
 #goalsetbtn{
     font-family:'Times New Roman', Times, serif;
@@ -150,6 +154,7 @@ input[type = 'radio']{
     background: rgb(255, 255, 255);
     color: rgb(31, 31, 31);
     transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    margin-top: 40px;
 
 }
 #goalsetbtn:hover{
@@ -161,7 +166,7 @@ input[type = 'radio']{
 /* THIRD CARD */
 
 .card{
-    background: linear-gradient(to bottom right, #3C4655, #4286ff);
+    background: linear-gradient(to bottom right, #bdc3c7a4, #2c3e50);
     color: white;
     width: 550px;
     border-radius: 20px;
@@ -223,7 +228,7 @@ input[type = 'radio']{
 /* FOURTH CARD */
 
 .statcard {
-    background: linear-gradient(to bottom right, #3C4655, #4286ff);
+    background: linear-gradient(to bottom right, #bdc3c7a4, #2c3e50);
     color: white;
     width: 550px;
     border-radius: 20px;
@@ -273,15 +278,32 @@ circle {
     stroke-width: 20px;
     stroke-dasharray: 472;
     stroke-dashoffset: 472;
-    animation: progressanim 2s linear forwards;
 }
 svg{
     position: absolute;
     top: 0;
     left: 0;
 }
+.startweightdisplay {
+    font-size: 20px;
+    position: absolute;
+    margin-left: 25px;
+    width: 210px;
+}
 .goalweightdisplay {
-    font-size: 25px;
+    font-size: 20px;
+    position: absolute;
+    margin-left: 320px;
+    width: 180px;
+}
+#maintenancecalories {
+    position: relative;
+    font-size: 30px;
+    width: 250px;
+    transform: translate(150px, -110px);
+}
+.warning{
+    transform: translateY(40px);
 }
 
 /* ANIMATIONS & CLASSES */
@@ -291,6 +313,9 @@ svg{
 }
 .invalid {
     border: 4px solid red !important;
+}
+.progressanimation{
+    animation: progressanim 2s linear forwards;
 }
 @keyframes progressanim {
     100% {
@@ -317,7 +342,15 @@ svg{
 .hidden {
     opacity: 0%;
     position:absolute;
+    transform: translateY(80px);
+    transform: translateX(65px);
     pointer-events: none;
+    transition: opacity, translateY .3s;
+}
+.visible {
+    opacity: 100%;
+    transition-delay: .3s;
+    transition: all .3s;
 }
 .underline {
     color: rgb(1, 255, 17);
@@ -326,4 +359,16 @@ svg{
 .underlinered {
     color: rgb(253, 42, 42);
     font-size: 50px;
+}
+.highlightstartkgnumber {
+    font-size: 45px;
+    background: linear-gradient(to right, #ffc5f9, #ee30ff);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.highlightgoalkgnumber {
+    font-size: 45px;
+    background: linear-gradient(to left, #ffc5f9, #ee30ff);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
