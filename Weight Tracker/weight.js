@@ -12,6 +12,7 @@ let startinginput = document.getElementById('startinginput')
 let goalsetbtn = document.getElementById('goalsetbtn')
 let progress = document.getElementById('progress')
 let counter = 0
+let circle = document.getElementById('circle')
 
 //arrays for storing weight and kcal
 let weightArray = []
@@ -25,13 +26,14 @@ let goalinputValue;
 //dynamically hide the cards
 thirdCard.classList.add('hidden')
 secondCard.classList.add('hidden')
-fourthCard.classList.add('hidden')
+fourthCard.classList.add('hiden')
 
 //button function for first card
 function goal(){
     if(gainradio.checked || lossradio.checked) {
         firstCard.classList.add('hidden')
         secondCard.classList.remove('hidden')
+        secondCard.classList.add('visible')
     }
 }
 
@@ -70,9 +72,12 @@ function setGoal(){
         goalWeight.push(goalinputValue);
         startingWeight.push(startinginputValue)
         secondCard.classList.add('hidden')
+        secondCard.classList.remove('visible')
         thirdCard.classList.remove('hidden')
-        document.getElementById("goalweightdisplay").innerHTML = 'Goal Weight: ' + goalinputValue + ' kg';
-}
+        thirdCard.classList.add('visible')
+        document.getElementById("goalweightdisplay").innerHTML = 'Goal Weight: <span class="highlightstartkgnumber">' + goalinputValue + ' kg</span>';
+        document.getElementById("startweightdisplay").innerHTML = 'Starting Weight: <span class="highlightgoalkgnumber">' + startinginputValue + ' kg</span>';
+    }
 }
 
 //button function for third card
@@ -109,21 +114,24 @@ function submit(){
     //if both are valid inputs continue to next card
     if(caloriesbtn.classList.contains('hidden') && weightbtn.classList.contains('hidden')) {
         thirdCard.classList.add('hidden')
+        thirdCard.classList.remove('visible')
         fourthCard.classList.remove('hidden')
+        fourthCard.classList.add('visible')
+        circle.classList.add('progressanimation')
+
+        //Progress Bar Counter function
+        setInterval(() => {
+        if(counter === 66){
+            clearInterval()
+        } else {
+        counter += 1;
+        progress.innerHTML = counter + '% <br>' + '-' + counter + 'kg'
+        }},30.77)
     }
 }
 
-//Progress Bar Counter function
-setInterval(() => {
-    if(counter === 65){
-        clearInterval()
-    } else {
-    counter += 1;
-    progress.innerHTML = counter + '%'
-}},30.77)
-
 //Events
-gainradio.addEventListener('click', goal)
-lossradio.addEventListener('click', goal)
+gainradio.addEventListener('click', goal);
+lossradio.addEventListener('click', goal);
 submitbtn.addEventListener("click", submit);
-goalsetbtn.addEventListener('click', setGoal)
+goalsetbtn.addEventListener('click', setGoal);
