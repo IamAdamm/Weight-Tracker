@@ -13,10 +13,14 @@ let goalsetbtn = document.getElementById('goalsetbtn')
 let progress = document.getElementById('progress')
 let counter = 0
 let circle = document.getElementById('circle')
+let progressanim = document.getElementsByClassName('progressanimation')[0]
 
 //arrays for storing weight and kcal
 let weightArray = []
 let caloriesArray = []
+
+let positivecaloriesArray = []
+let negativecaloriesArray = []
 
 let startingWeight = []
 let goalWeight = []
@@ -64,7 +68,7 @@ function setGoal(){
         setTimeout(() => {
             goalinput.classList.remove('shake')
         }, 500);
-}
+    }
     //if both are valid inputs continue to next card and store the inputs
     if(goalinput.classList.contains('hidden') && startinginput.classList.contains('hidden')) {
         goalWeight.shift;
@@ -89,27 +93,28 @@ function submit(){
 
     // Check if the input is a number and less than 200
     if(typeof weightValue === 'number' && weightValue < 200){
+        document.getElementById("currentWeight").innerHTML = 'Current Weight: <span class="highlightcurrentkgnumber">' + weightValue + ' kg</span>';
         weightArray.push(weightValue)
         weightbtn.classList.add('hidden')
-} else {
+    } else {
     weightbtn.classList.add('shake')
     weightbtn.classList.add('invalid')
     setTimeout(() => {
         weightbtn.classList.remove('shake')
     }, 500);
-}
+    }
 
     // Check if the calories are a number and more than 200
     if(typeof caloriesValue === 'number' && caloriesValue > 200){
         caloriesArray.push(caloriesValue)
         caloriesbtn.classList.add('hidden')
-} else {
+    } else {
     caloriesbtn.classList.add('shake')
     caloriesbtn.classList.add('invalid')
     setTimeout(() => {
         caloriesbtn.classList.remove('shake')
     }, 500);
-}
+    }
 
     //if both are valid inputs continue to next card
     if(caloriesbtn.classList.contains('hidden') && weightbtn.classList.contains('hidden')) {
@@ -119,14 +124,70 @@ function submit(){
         fourthCard.classList.add('visible')
         circle.classList.add('progressanimation')
 
+        //Calculating the average of the weightarray to calculate the weight progress in kg
+        let sum = 0;
+        for (let i = 0; i < weightArray.length; i++){
+            if(typeof weightArray[i] === 'number'){
+                sum += weightArray[i]
+            }
+        }
+        let weightArrayAverage = sum / weightArray.length;
+        
+        let weightprogress = Math.abs(startingWeight[0] - weightArrayAverage);
+
         //Progress Bar Counter function
-        setInterval(() => {
-        if(counter === 66){
-            clearInterval()
+        let weightInterval = setInterval(() => {
+        if (Math.abs(counter - weightprogress) < 0.1) {            
+            clearInterval(weightInterval)
+        } else if (goalWeight[0] > startingWeight[0]) {
+            counter += 0.1;
+            progress.innerHTML = '+' + counter.toFixed(1) + 'kg'
+        } else if (startingWeight[0] === weightValue){
+            progress.innerHTML = '0 kg'
         } else {
-        counter += 1;
-        progress.innerHTML = counter + '% <br>' + '-' + counter + 'kg'
-        }},30.77)
+            counter += 0.1;
+            progress.innerHTML = '-' + counter.toFixed(1) + 'kg'
+        }
+    },80)
+
+        //Calculating the caloric Limit
+        if(weightArray[weightArray.length - 1] > weightArray[weightArray.length - 2]) {
+            positivecaloriesArray.push(caloriesArray[caloriesArray.length -1])
+        } else if (weightArray[weightArray.length - 1] < weightArray[weightArray.length - 2]){
+            negativecaloriesArray.push(caloriesArray[caloriesArray.length -1])
+        }
+
+        let positivekcalavg = positivecaloriesArray.join() / positivecaloriesArray.length
+        let negativekcalavg = negativecaloriesArray.join() / negativecaloriesArray.length
+        let kcallimit =  (negativekcalavg + positivekcalavg) / 2
+
+        document.getElementById('maintenancecalories').innerHTML = 'Caloric Limit: <span class="highlightkcallimitnumber">' + kcallimit + ' kcal</span>'
+
+        //Calculating the Progress Bar
+        let a = Math.abs(goalWeight[0] - startingWeight[0])
+        let b = weightprogress / a
+        let c = 495 * b
+        let progressbarprogress = 495 - c
+       
+        // Changing the value of Keyframes progressanim to display right progressbar progress
+        let styleSheet = document.styleSheets[0];
+        let progressKeyframesRule = null;
+
+        for (let rule of styleSheet.cssRules) {
+            if (rule.type === CSSRule.KEYFRAMES_RULE && rule.name === 'progressanim') {
+                progressKeyframesRule = rule;
+                break;
+            }
+        }
+        if (progressKeyframesRule) {
+            for (let keyframe of progressKeyframesRule.cssRules) {
+                if (keyframe.keyText === '100%') {
+                    keyframe.style.strokeDashoffset = progressbarprogress;
+                    break;
+                }
+            }
+        }
+
     }
 }
 
@@ -135,3 +196,5 @@ gainradio.addEventListener('click', goal);
 lossradio.addEventListener('click', goal);
 submitbtn.addEventListener("click", submit);
 goalsetbtn.addEventListener('click', setGoal);
+
+
