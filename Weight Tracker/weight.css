@@ -270,7 +270,8 @@ input[type = 'radio']{
 }
 #progress {
     font-weight: 600;
-    color: #555;
+    color: #232223;
+    font-size: 35px;
 }
 circle {
     fill: none;
@@ -297,13 +298,21 @@ svg{
     width: 180px;
 }
 #maintenancecalories {
-    position: relative;
     font-size: 30px;
-    width: 250px;
-    transform: translate(150px, -110px);
+    position: absolute;
+    margin-left: 25px;
+    width: 200px;
+    transform: translateY(-163px);
 }
 .warning{
-    transform: translateY(40px);
+    transform: translate(-140px,-0px);
+}
+.currentWeight {
+    font-size: 20px;
+    position: absolute;
+    margin-left: 320px;
+    width: 190px;
+    transform: translateY(-120px);
 }
 
 /* ANIMATIONS & CLASSES */
@@ -319,9 +328,32 @@ svg{
 }
 @keyframes progressanim {
     100% {
-        stroke-dashoffset: 165.5;
+        stroke-dashoffset: 222.75;
     }
 }
+/*
+FULL CIRCLE = 36 - EMPTY CIRCLE = 495
+
+----------------------
+FORMEL
+Goal kg - starting kg = total kg needed
+current weight - starting Weight / total kg needed = a
+495 x a = negativeprogress%
+495 - negativeprogress%  = progress%
+-----------------------
+TEST 1
+46kg - 44kg = 2kg
+45kg - 44kg / 2kg = 1kg / 2kg = 0.5
+495 x 0.5 = 247.5
+495 - 247.5 = 247.5
+-----------------------
+TEST 2
+46kg - 44kg = 2kg
+45.3kg - 44kg / 2kg = 1.3kg / 2kg = 0.65%
+
+495 x 0.65 = 321.75
+495 - 321,75 = 173.25
+*/
 @keyframes shake {
     0% {
         transform: translateX(0);
@@ -362,13 +394,25 @@ svg{
 }
 .highlightstartkgnumber {
     font-size: 45px;
-    background: linear-gradient(to right, #ffc5f9, #ee30ff);
+    background: linear-gradient(to bottom right, #ffc5f9, #ee30ff);
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 .highlightgoalkgnumber {
     font-size: 45px;
-    background: linear-gradient(to left, #ffc5f9, #ee30ff);
+    background: linear-gradient(to bottom left, #ffc5f9, #ee30ff);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.highlightcurrentkgnumber {
+    font-size: 45px;
+    background: linear-gradient(to top right, #ffc5f9, #ee30ff);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.highlightkcallimitnumber {
+    font-size: 45px;
+    background: linear-gradient(to top left, #ffc5f9, #ee30ff);
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
