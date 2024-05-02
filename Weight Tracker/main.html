@@ -83,6 +83,10 @@
             <h2 id="startweightdisplay"></h2>
         </div>
         <div class="goalweightdisplay">
+            <div class="pencil" id="pencil"></div>
+            <div class="edit">
+                <h3>Edit</h3>
+            </div>
             <h2 id="goalweightdisplay"></h2>
         </div>
         <div class="progressbar">
@@ -94,21 +98,24 @@
             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
                     <defs>
                     <linearGradient id="GradientColor">
-                        <stop offset="0%" stop-color="#e91e63" />
-                        <stop offset="100%" stop-color="#673ab7" />
+                        <stop offset="0%" stop-color="#0087fe" />
+                        <stop offset="100%" stop-color="#1dc7ff" />
                     </linearGradient>
                     </defs>
                     <circle id= 'circle' cx="80" cy="80" r="70" stroke-linecap="round" />
             </svg>
         </div>
         <div class="currentWeight">
-            <h2 id="currentWeight">Current Weight: 20kg</h2>
+            <h2 id="currentWeight"></h2>
         </div>
         <div class="maintenancecalories">
-            <div class="warning">
-                <h4>(Do Not Exceed Limit for Weight Loss)</h4>
-            </div>
-            <h2 id="maintenancecalories">Caloric Limit: 2000kcal</h2>
+            <h2 id="maintenancecalories"></h2>
+            <button id="limitkcalpopupbtn"><span id="popupquestionmark">?</span></button>
+            <h3 id="popupquestionmarktext">More weigh ins needed to calculate caloric limit. <br> The more weigh ins, the more accurate your limit becomes.
+            </h3>
+        </div>
+        <div class="weighinbtn">
+            <button id="weighinbtn">Weigh In</button>
         </div>
     </div>
 
