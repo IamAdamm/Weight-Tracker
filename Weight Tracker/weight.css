@@ -2,7 +2,7 @@
     font-family: Teko;
 }
 body {
-    background-color: rgb(35, 35, 35);
+    background-color: rgb(47, 47, 53);
 }
 input[type='number'] {
     appearance: textfield;
@@ -236,6 +236,7 @@ input[type = 'radio']{
     text-align: center;
     margin: 80px auto;    
     border: 2px solid black;
+    cursor: default;
 }
 .statcard h1 {
     font-size: 50px;
@@ -252,12 +253,10 @@ input[type = 'radio']{
     border-radius: 50%;
     background: white;
     padding: 20px;
-    box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, .15),
-                -6px -6px 10px -1px rgba(255, 255, 255, .7)
 }
 .inner {
     height: 120px;
-    width:120px;
+    width: 120px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -272,6 +271,7 @@ input[type = 'radio']{
     font-weight: 600;
     color: #232223;
     font-size: 35px;
+    transition: font-size 2s, opacity 0.1s;
 }
 circle {
     fill: none;
@@ -297,15 +297,60 @@ svg{
     margin-left: 320px;
     width: 180px;
 }
+.edit {
+    opacity: 0;
+    position: absolute;
+    margin-left: 161px;
+    margin-top: 48px;
+    background-color: rgb(116, 116, 116);
+    height: 20px;
+    width: 40px;
+    border-radius: 10%;
+    border-bottom-left-radius: 0%
+}
+.edit h3 {
+    margin-top: -2px;
+    font-size: 18px;
+}
+.pencil {
+    width: 5px;
+    height: 8px;
+    background-color: white;
+    margin-left: 150px;
+    margin-top: 70px;
+    position: absolute;
+    transform: rotate(45deg);
+    cursor: pointer;
+}
+.pencil:hover + .edit{
+    opacity: 1;
+    transition: opacity .2s;
+}
+.pencil::before, .pencil::after{
+    content: '';
+    position: absolute;
+}
+.pencil::before {
+    width: 5px;
+    height: 5px;
+    background-color: white;
+    top: -6px;
+    left: 0px;
+    border-radius: 50% 50% 0 0;
+}
+.pencil::after {
+    bottom: -36px;
+    bottom: -8.5px;
+    left: -0px;
+    border-top: 8px solid white;
+    border-right: 2.5px solid transparent;
+    border-left: 2.5px solid transparent;
+}
 #maintenancecalories {
     font-size: 30px;
     position: absolute;
-    margin-left: 25px;
     width: 200px;
-    transform: translateY(-163px);
-}
-.warning{
-    transform: translate(-140px,-0px);
+    transform: translate(30px, -120px);
 }
 .currentWeight {
     font-size: 20px;
@@ -313,6 +358,57 @@ svg{
     margin-left: 320px;
     width: 190px;
     transform: translateY(-120px);
+}
+#limitkcalpopupbtn {
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 15px;
+    border: none;
+    background: white;
+    font-weight: 600;
+    transform: translate(-120px, -63px);
+    cursor: pointer;
+}
+#popupquestionmark {
+    position: absolute;
+    transform: translate(-3px,-9px);
+}
+#popupquestionmarktext {
+    position: absolute;
+    margin-top: -230px;
+    margin-left: 160px;
+    background-color: white;
+    color: #42a7ff;
+    padding: 10px;
+    border-radius: 10%;
+    width: 190px;
+    border-bottom-left-radius: 0%;
+    cursor: default;
+    opacity: 0;
+}
+#weighinbtn {
+    position: absolute;
+    font-size: 30px;
+    height: 120px;
+    width: 120px;
+    background: inherit;
+    margin-left: -59px;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    font-weight: 600;
+    margin-top: -283px;
+    opacity: 0;
+    box-shadow: inset 4px 4px 6px -1px rgba(0, 0, 0, .2),
+    inset -4px -4px 6px -1px rgba(255, 255, 255, .7),
+    -.5px -.5px 0px rgba(255, 255, 255, 1),
+    .5px .5px 0px rgba(0, 0, 0, .15),
+    0px 12px 10px -10px rgba(0, 0, 0, .05);
+}
+#weighinbtn:hover {
+    opacity: 1;
+    transition: all 0.3s;
 }
 
 /* ANIMATIONS & CLASSES */
@@ -326,9 +422,13 @@ svg{
 .progressanimation{
     animation: progressanim 2s linear forwards;
 }
+.popupquestionmarkclicked {
+    opacity: 0.9 !important;
+    transition: opacity 1s;
+}
 @keyframes progressanim {
     100% {
-        stroke-dashoffset: 222.75;
+        stroke-dashoffset: 0;
     }
 }
 /*
@@ -394,25 +494,26 @@ TEST 2
 }
 .highlightstartkgnumber {
     font-size: 45px;
-    background: linear-gradient(to bottom right, #ffc5f9, #ee30ff);
+    background: linear-gradient(to bottom left, #42a7ff, #81c2fa);
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 .highlightgoalkgnumber {
     font-size: 45px;
-    background: linear-gradient(to bottom left, #ffc5f9, #ee30ff);
+    background: linear-gradient(to bottom right, #42a7ff , #81c2fa);
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 .highlightcurrentkgnumber {
     font-size: 45px;
-    background: linear-gradient(to top right, #ffc5f9, #ee30ff);
+    background: linear-gradient(to top left, #42a7ff, #81c2fa);
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 .highlightkcallimitnumber {
     font-size: 45px;
-    background: linear-gradient(to top left, #ffc5f9, #ee30ff);
+    background: linear-gradient(to top right, #42a7ff, #81c2fa);
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
+
