@@ -16,7 +16,7 @@ Usage
 Goal Setting: Set your target weight goal in the app.
 Daily Weigh-ins: Record your daily weight measurements by entering them into the app.
 Monitor Progress: Track your weight progress through the visual representations provided by the app.
-View Caloric Limit: Monitor your caloric intake limit calculated by the app to maintain your weight goals.
+View Caloric Limit: Monitor your caloric intake limit calculated by the app to maintain your weight goals
 Installation
 
 To install and run the Weight Tracker App locally, follow these steps:
