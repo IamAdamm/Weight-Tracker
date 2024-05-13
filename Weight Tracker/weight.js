@@ -31,6 +31,9 @@ let goalinputValue;
 thirdCard.classList.add('hidden')
 secondCard.classList.add('hidden')
 fourthCard.classList.add('hidden')
+document.getElementById('scorenum').classList.add('hidden')
+document.getElementById('score').classList.add('hidden')
+
 
 //button function for first card
 function goal(){
@@ -88,7 +91,6 @@ function setGoal(){
 let weightInterval;
 
 function submit(){
-    clearInterval(weightInterval);
 
     // Convert the values to numbers
     let weightValue = parseFloat(weightbtn.value);
@@ -154,8 +156,12 @@ function submit(){
         } else if (goalWeight[0] > startingWeight[0]) {
             counter += 0.1;
             progress.innerHTML = '+' + counter.toFixed(1) + 'kg'
+            if(counter > weightprogress) {
+                clearInterval(weightInterval);
+            }
         } else if (Math.abs(startingWeight[0] - weightValue) < 0.001){
             progress.innerHTML = '0 kg'
+            clearInterval(weightInterval); // Stop the interval when there's no progress
         } else {
             counter += 0.1;
             progress.innerHTML = '-' + counter.toFixed(1) + 'kg'
@@ -170,14 +176,6 @@ function submit(){
             else if (weightArray[weightArray.length - 1] < weightArray[weightArray.length - 2]){
                 negativecaloriesArray.push(caloriesArray[caloriesArray.length -1])
             }
-            
-            // Convert arrays to strings for alert
-            let positiveCaloriesMsg = 'Positive Calories Array: ' + positivecaloriesArray.join(', ');
-            let negativeCaloriesMsg = 'Negative Calories Array: ' + negativecaloriesArray.join(', ');
-        
-            alert(positiveCaloriesMsg);
-            alert(negativeCaloriesMsg);
-        
 
             // Calculate average positive and negative calories
             let positivekcalavg = positivecaloriesArray.reduce((acc, val) => acc + val, 0) / positivecaloriesArray.length;
@@ -185,8 +183,8 @@ function submit(){
             let kcallimit =  (negativekcalavg + positivekcalavg) / 2
             
             if(!isNaN(kcallimit)) {
-                document.getElementById('maintenancecalories').innerHTML = 'Caloric Limit: <span class="highlightkcallimitnumber">' + kcallimit + ' kcal</span>'
-                document.getElementById('limitkcalpopupbtn').classList.add('hidden');
+                document.getElementById('maintenancecalories').innerHTML = 'Caloric Limit: <span class="highlightkcallimitnumber">' + Math.round(kcallimit) + ' kcal</span>'
+                document.getElementById('limitkcalpopupbtn').classList.add('hiddenonlyopacity');
             }
         } else {
             document.getElementById('maintenancecalories').innerHTML = 'Caloric Limit: <span class="highlightkcallimitnumber"> NA </span>'
@@ -197,8 +195,7 @@ function submit(){
         let b = weightprogress / a
         let c = 505 * b
 
-        if((505 - c) > 36){
-        
+        if((505 - c) > 36){        
             let progressbarprogress = 505 - c
         
             // Changing the value of Keyframes progressanim to display right progressbar progress
@@ -223,26 +220,28 @@ function submit(){
 
             //if goal already reached progressbar stays full
             let progressbarprogress = 36
-             let styleSheet = document.styleSheets[0];
-             let progressKeyframesRule = null;
+            let styleSheet = document.styleSheets[0];
+            let progressKeyframesRule = null;
  
-             for (let rule of styleSheet.cssRules) {
-                 if (rule.type === CSSRule.KEYFRAMES_RULE && rule.name === 'progressanim') {
-                     progressKeyframesRule = rule;
-                     break;
+            for (let rule of styleSheet.cssRules) {
+                if (rule.type === CSSRule.KEYFRAMES_RULE && rule.name === 'progressanim') {
+                    progressKeyframesRule = rule;
+                    break;
                 }
             }
-             if (progressKeyframesRule) {
-                 for (let keyframe of progressKeyframesRule.cssRules) {
-                     if (keyframe.keyText === '100%') {
-                         keyframe.style.strokeDashoffset = progressbarprogress;
-                         break;
-                     }
-                 }
-             }
-        }
+            if (progressKeyframesRule) {
+                for (let keyframe of progressKeyframesRule.cssRules) {
+                    if (keyframe.keyText === '100%') {
+                        keyframe.style.strokeDashoffset = progressbarprogress;
+                        break;
+                        }
+                    }
+                }
+            }
+        }        
     }
-}
+
+
 function weighinagain() {
     fourthCard.classList.add('hidden')
     thirdCard.classList.remove('hidden')
@@ -250,7 +249,14 @@ function weighinagain() {
     weightbtn.classList.remove('hidden')
     caloriesbtn.value = ""
     weightbtn.value = ""
+    circle.classList.remove('progressanimation')
+    document.getElementById('scorenum').classList.remove('hidden')
+    document.getElementById('scorenum').innerHTML = weightArray.length;
+    if (weightArray > 0) {
+        document.getElementById('score').classList.remove('hidden')
+    }
 }
+
 // Function to show popup text
 function popupbtntext() {
     document.getElementById('popupquestionmarktext').classList.add('popupquestionmarkclicked')
@@ -278,6 +284,7 @@ function Goalchange() {
 }
 
 
+
 //Events
 gainradio.addEventListener('click', goal);
 lossradio.addEventListener('click', goal);
@@ -292,5 +299,3 @@ document.getElementById('progress').style.opacity = '0';
 document.getElementById('weighinbtn').addEventListener('mouseout', function() {
 document.getElementById('progress').style.opacity = '1';
 });
-
-
