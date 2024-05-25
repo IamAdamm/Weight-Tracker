@@ -31,8 +31,7 @@ let goalinputValue;
 thirdCard.classList.add('hidden')
 secondCard.classList.add('hidden')
 fourthCard.classList.add('hidden')
-document.getElementById('scorenum').classList.add('hidden')
-document.getElementById('score').classList.add('hidden')
+
 
 
 //button function for first card
@@ -250,11 +249,6 @@ function weighinagain() {
     caloriesbtn.value = ""
     weightbtn.value = ""
     circle.classList.remove('progressanimation')
-    document.getElementById('scorenum').classList.remove('hidden')
-    document.getElementById('scorenum').innerHTML = weightArray.length;
-    if (weightArray > 0) {
-        document.getElementById('score').classList.remove('hidden')
-    }
 }
 
 // Function to show popup text
