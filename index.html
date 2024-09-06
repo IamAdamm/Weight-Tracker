@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weight Tracker</title>
+    <link rel="stylesheet" href="weight.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- FIRST CARD -->
+
+    <div class="welcomeCard" id="welcomeCard">
+        <div class="welcomeHeader">
+            <h1>Do you want to Gain Weight or Lose Weight?</h1>
+        </div>
+        <div class="goalChoice">
+            <div class="weightloss">
+                <input type="radio" name="goal" id="lossradio">
+                <label for="lossradio">I want to <span class="underlinered"><strong>LOSE</strong></span> Weight</label>
+            </div>
+            <div class="weightgain">
+                <input type="radio" name="goal" id="gainradio">
+                <label for="gainradio">I want to <span class="underline"><strong>GAIN</strong></span> Weight</label>
+            </div>
+        </div>
+    </div>
+
+<!-- SECOND CARD -->
+
+    <div class="goalsetcard" id="goalsetcard">
+        <div class="goalHeader">
+            <h1>What is your Current & Goal Weight?</h1>
+        </div>
+        <div class="weightgoals">
+            <div class="start">
+                <input type="number" name="starting" id="startinginput"
+                placeholder="Current Weight">
+            </div>
+            <div class="goal">
+                <input type="number" name="end" id="goalinput" placeholder="Goal Weight">
+            </div>
+        </div>
+        <div class="notice">
+            <p><u><em>Don't worry, you can change your mind later on!</em></u></p>
+        </div>
+        <div>
+            <button id="goalsetbtn">Start your Journey!</button>
+        </div>
+    </div>
+
+<!-- THIRD CARD -->
+
+    <div class="card" id="card">
+        <div class="header">
+            <h1>Daily Weigh in</h1>
+        </div>
+        <div class="weight">
+            <div class="weightbtn">
+                <input type="number" id="weightButton" placeholder="Weight">
+            </div>
+        </div>
+        <div class="calories">
+            <div class="caloriesbtn">
+                <input type="number" id="caloriesButton" placeholder="Calories">
+            </div>
+        </div>
+        <div class="submit">
+            <button id="Submit">Submit for Today</button>
+    </div>
+    </div>
+
+<!-- FOURTH CARD -->
+
+    <div class="statcard" id="statcard">
+        <div class="header">
+            <h1>Progress</h1>
+        <div class="score">
+            <p id="scorenum"></p>
+            <img src="./Fire-Png-299.png" alt="Score" id="score">
+        </div>
+        </div>
+        <div class="startweightdisplay">
+            <h2 id="startweightdisplay"></h2>
+        </div>
+        <div class="goalweightdisplay">
+            <div class="pencil" id="pencil"></div>
+            <div class="edit">
+                <h3>Edit</h3>
+            </div>
+            <h2 id="goalweightdisplay"></h2>
+        </div>
+        <div class="progressbar">
+            <div class="outer">
+                <div class="inner">
+                    <div class="progress" id="progress"></div>
+                </div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                    <defs>
+                    <linearGradient id="GradientColor">
+                        <stop offset="0%" stop-color="#0087fe" />
+                        <stop offset="100%" stop-color="#1dc7ff" />
+                    </linearGradient>
+                    </defs>
+                    <circle id= 'circle' cx="80" cy="80" r="70" stroke-linecap="round" />
+            </svg>
+        </div>
+        <div class="currentWeight">
+            <h2 id="currentWeight"></h2>
+        </div>
+        <div class="maintenancecalories">
+            <h2 id="maintenancecalories"></h2>
+            <button id="limitkcalpopupbtn"><span id="popupquestionmark">?</span></button>
+            <h3 id="popupquestionmarktext">More weigh ins needed to calculate caloric limit. <br> The more weigh ins, the more accurate your limit becomes.
+            </h3>
+        </div>
+        <div class="weighinbtn">
+            <button id="weighinbtn">Weigh In</button>
+        </div>
+    </div>
+
+</body>
+<script src="weight.js"></script>
+</html>
