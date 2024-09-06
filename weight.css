@@ -1,0 +1,541 @@
+* {
+    font-family: Teko;
+}
+body {
+    background-color: rgb(47, 47, 53);
+}
+input[type='number'] {
+    appearance: textfield;
+}
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type = 'radio']{
+    display: none;
+}
+.goalChoice label{
+    cursor: pointer;
+}
+
+/* FIRST CARD */
+
+.welcomeCard{
+    background: linear-gradient(to bottom right, #bdc3c7a4, #2c3e50);
+    color: white;
+    width: 550px;
+    border-radius: 20px;
+    height: 600px;
+    text-align: center;
+    margin: 80px auto;
+    border: 2px solid black;
+}
+.welcomeHeader{
+    color: rgb(255, 255, 255);
+    height: 100px;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    padding-bottom: 10px;
+    font-size: 22px;
+    font-weight: 700;
+    margin-left: 30px;
+    margin-right: 30px;
+    position: flex;
+}
+.weightloss{
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+    font-size: 45px;
+    margin-top: 100px;
+    padding-bottom: 5px;
+    align-items: center;
+    margin-bottom: 20px;
+    transition: transform .3s;
+}
+.weightgain{
+    position: relative;
+    margin-top: 80px;
+    font-size: 45px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    transition: transform .3s;
+}
+.weightloss:hover {
+    transform: translateY(-5px);
+    transition: transform .3s;
+
+}
+.weightgain:hover {
+    transform: translateY(-5px);
+    transition: all .3s;
+}
+.weightgain::after {
+    content: "";
+    position: absolute;
+    background-color: rgb(1, 255, 17);
+    width: 0;
+    height: 3px;
+    bottom: 12px;
+    transition: all .3s;
+}
+.weightgain:hover::after{
+    width: 60%;
+}
+.weightloss::after {
+    content: "";
+    position: absolute;
+    background-color: rgb(253, 42, 42);
+    width: 0;
+    height: 3px;
+    bottom: 17px;
+    transition: all .3s;
+}
+.weightloss:hover::after{
+    width: 60%;
+}
+
+/* SECOND CARD */
+
+.goalsetcard {
+    background: linear-gradient(to bottom right, #bdc3c7a4, #2c3e50);
+    color: white;
+    width: 550px;
+    border-radius: 20px;
+    height: 600px;
+    text-align: center;
+    margin: 80px auto;    
+    border: 2px solid black;
+    justify-content: center;
+}
+
+.goalHeader {
+    color: rgb(255, 255, 255);
+    height: 90px;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    padding-bottom: 10px;
+    font-size: 23px;
+    font-weight: 700;
+}
+.weightgoals {
+    margin-top: 60px;
+    font-size: 50px;
+    display: flex;
+    flex-direction:row;
+    align-items: flex-start;
+}
+.notice {
+    margin-top: 30px;
+    margin-bottom: 40px;
+    font-size: 20px;
+}
+.weightgoals input{
+    height: 65px;
+    width: 200px;
+    font-size: 40px;
+    text-align: center;
+    border-radius: 12%;
+    margin-right: 16px;
+    margin-left: 40px;
+    margin-top: 60px;
+}
+#goalsetbtn{
+    font-family:'Times New Roman', Times, serif;
+    cursor: pointer;
+    height: 100px;
+    width: 300px;
+    border-radius: 50px;
+    border: 1px solid rgb(0, 0, 0);
+    font-size: 30px;
+    font-weight: bolder;
+    background: rgb(255, 255, 255);
+    color: rgb(31, 31, 31);
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    margin-top: 40px;
+
+}
+#goalsetbtn:hover{
+    transform: translateY(3px);
+    background: black;
+    color: white;
+}
+
+/* THIRD CARD */
+
+.card{
+    background: linear-gradient(to bottom right, #bdc3c7a4, #2c3e50);
+    color: white;
+    width: 550px;
+    border-radius: 20px;
+    height: 600px;
+    text-align: center;
+    margin: 80px auto;    
+    border: 2px solid black;
+}
+.header{
+    background: linear-gradient(lightblue);
+    color: rgb(255, 255, 255);
+    height: 90px;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    padding-bottom: 10px;
+}
+.header h1{
+    font-size: 60px;
+    font-weight: 700;   
+}
+#weightButton {
+   height: 85px;
+   width: 400px;
+   font-size: 50px;
+   text-align: center;
+   border-radius: 25px;
+   border: 1px solid black;
+   margin-top: 40px;
+}
+#caloriesButton {
+    height: 85px;
+    width: 400px;
+    font-size: 50px;
+    text-align: center;
+    border-radius: 25px;
+    border: 1px solid black;
+    margin-top: 50px;
+}
+#Submit {
+    font-family:'Times New Roman', Times, serif;
+    margin-top: 50px;
+    height: 100px;
+    width: 300px;
+    border-radius: 50px;
+    border: 1px solid rgb(0, 0, 0);
+    font-size: 30px;
+    font-weight: bolder;
+    background: rgb(255, 255, 255);
+    color: rgb(31, 31, 31);
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+#Submit:hover {
+    transform: translateY(3px);
+    background: black;
+    color: white;
+}
+
+/* FOURTH CARD */
+
+.statcard {
+    background: linear-gradient(to bottom right, #bdc3c7a4, #2c3e50);
+    color: white;
+    width: 550px;
+    border-radius: 20px;
+    height: 600px;
+    text-align: center;
+    margin: 80px auto;    
+    border: 2px solid black;
+    cursor: default;
+}
+.statcard h1 {
+    font-size: 50px;
+}
+.progressbar {
+    width: 160px;
+    height: 160px;
+    position: relative;
+    margin: 120px auto;
+}
+.outer {
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    background: white;
+    padding: 20px;
+}
+.inner {
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 4px 4px 6px -1px rgba(0, 0, 0, .2),
+                inset -4px -4px 6px -1px rgba(255, 255, 255, .7),
+                -.5px -.5px 0px rgba(255, 255, 255, 1),
+                .5px .5px 0px rgba(0, 0, 0, .15),
+                0px 12px 10px -10px rgba(0, 0, 0, .05);
+}
+#progress {
+    font-weight: 600;
+    color: #232223;
+    font-size: 35px;
+    transition: font-size 2s, opacity 0.1s;
+}
+circle {
+    fill: none;
+    stroke: url(#GradientColor);
+    stroke-width: 20px;
+    stroke-dasharray: 472;
+    stroke-dashoffset: 472;
+}
+svg{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.startweightdisplay {
+    font-size: 20px;
+    position: absolute;
+    margin-left: 25px;
+    width: 210px;
+}
+.goalweightdisplay {
+    font-size: 20px;
+    position: absolute;
+    margin-left: 320px;
+    width: 180px;
+}
+.edit {
+    opacity: 0;
+    position: absolute;
+    margin-left: 161px;
+    margin-top: 48px;
+    background-color: rgb(116, 116, 116);
+    height: 20px;
+    width: 40px;
+    border-radius: 10%;
+    border-bottom-left-radius: 0%
+}
+.edit h3 {
+    margin-top: -2px;
+    font-size: 18px;
+}
+.pencil {
+    width: 5px;
+    height: 8px;
+    background-color: white;
+    margin-left: 150px;
+    margin-top: 70px;
+    position: absolute;
+    transform: rotate(45deg);
+    cursor: pointer;
+}
+.pencil:hover + .edit{
+    opacity: 1;
+    transition: opacity .2s;
+}
+.pencil::before, .pencil::after{
+    content: '';
+    position: absolute;
+}
+.pencil::before {
+    width: 5px;
+    height: 5px;
+    background-color: white;
+    top: -6px;
+    left: 0px;
+    border-radius: 50% 50% 0 0;
+}
+.pencil::after {
+    bottom: -36px;
+    bottom: -8.5px;
+    left: -0px;
+    border-top: 8px solid white;
+    border-right: 2.5px solid transparent;
+    border-left: 2.5px solid transparent;
+}
+#maintenancecalories {
+    font-size: 30px;
+    position: absolute;
+    width: 200px;
+    transform: translate(30px, -120px);
+}
+.currentWeight {
+    font-size: 20px;
+    position: absolute;
+    margin-left: 320px;
+    width: 190px;
+    transform: translateY(-120px);
+}
+#limitkcalpopupbtn {
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 15px;
+    border: none;
+    background: white;
+    font-weight: 600;
+    transform: translate(-120px, -63px);
+    cursor: pointer;
+}
+#popupquestionmark {
+    position: absolute;
+    transform: translate(-3px,-9px);
+}
+#popupquestionmarktext {
+    position: absolute;
+    margin-top: -230px;
+    margin-left: 160px;
+    background-color: white;
+    color: #42a7ff;
+    padding: 10px;
+    border-radius: 10%;
+    width: 190px;
+    border-bottom-left-radius: 0%;
+    cursor: default;
+    opacity: 0;
+}
+#weighinbtn {
+    position: absolute;
+    font-size: 30px;
+    height: 120px;
+    width: 120px;
+    background: inherit;
+    margin-left: -59px;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    font-weight: 600;
+    margin-top: -283px;
+    opacity: 0;
+    box-shadow: inset 4px 4px 6px -1px rgba(0, 0, 0, .2),
+    inset -4px -4px 6px -1px rgba(255, 255, 255, .7),
+    -.5px -.5px 0px rgba(255, 255, 255, 1),
+    .5px .5px 0px rgba(0, 0, 0, .15),
+    0px 12px 10px -10px rgba(0, 0, 0, .05);
+}
+#weighinbtn:hover {
+    opacity: 1;
+    transition: all 0.3s;
+}
+
+#score {
+    width: 37px;
+    height: 47px;
+    position: absolute;
+    margin-left: 170px;
+    margin-top: -100px;
+}
+#scorenum {
+    position: absolute;
+    margin-left: 455px;
+    margin-top: -95px;
+    font-size: 35px;
+    color: black;
+    font-weight:600;
+    z-index: 1;
+}
+
+/* ANIMATIONS & CLASSES */
+
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
+.invalid {
+    border: 4px solid red !important;
+}
+.progressanimation{
+    animation: progressanim 2s linear forwards;
+}
+.popupquestionmarkclicked {
+    opacity: 0.9 !important;
+    transition: opacity 1s;
+}
+@keyframes progressanim {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+/*
+FULL CIRCLE = 36 - EMPTY CIRCLE = 495
+
+----------------------
+FORMEL
+Goal kg - starting kg = total kg needed
+current weight - starting Weight / total kg needed = a
+495 x a = negativeprogress%
+495 - negativeprogress%  = progress%
+-----------------------
+TEST 1
+46kg - 44kg = 2kg
+45kg - 44kg / 2kg = 1kg / 2kg = 0.5
+495 x 0.5 = 247.5
+495 - 247.5 = 247.5
+-----------------------
+TEST 2
+46kg - 44kg = 2kg
+45.3kg - 44kg / 2kg = 1.3kg / 2kg = 0.65%
+
+495 x 0.65 = 321.75
+495 - 321,75 = 173.25
+*/
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    75% {
+        transform: translateX(-5px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+.hidden {
+    opacity: 0%;
+    position:absolute;
+    transform: translateY(80px);
+    transform: translateX(65px);
+    pointer-events: none;
+    transition: opacity, translateY .3s;
+}
+.hiddenonlyopacity {
+    opacity: 0%;
+    cursor: default;
+    pointer-events: none
+}
+.visible {
+    opacity: 100%;
+    transition-delay: .3s;
+    transition: all .3s;
+}
+.underline {
+    color: rgb(1, 255, 17);
+    font-size: 50px;
+}
+.underlinered {
+    color: rgb(253, 42, 42);
+    font-size: 50px;
+}
+.highlightstartkgnumber {
+    font-size: 45px;
+    background: linear-gradient(to bottom left, #42a7ff, #81c2fa);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.highlightgoalkgnumber {
+    font-size: 45px;
+    background: linear-gradient(to bottom right, #42a7ff , #81c2fa);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.highlightcurrentkgnumber {
+    font-size: 45px;
+    background: linear-gradient(to top left, #42a7ff, #81c2fa);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.highlightkcallimitnumber {
+    font-size: 45px;
+    background: linear-gradient(to top right, #42a7ff, #81c2fa);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
