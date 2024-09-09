@@ -2,7 +2,7 @@ Weight Tracker App
 
 Overview
 
-The Weight Tracker App is a web application designed to help users track their weight loss or gain progress over time. It provides features such as setting goals, recording daily weigh-ins, calculating progress, and monitoring caloric intake limits
+The Weight Tracker App is a web application designed to help users track their weight loss or gain progress over time. It provides features such as setting goals, recording daily weigh-ins, calculating progress, and monitoring caloric intake limits.
 
 Features
 
