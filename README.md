@@ -9,7 +9,7 @@ Features
 Goal Setting: Users can set their target weight goals to track their progress.
 Daily Weigh-ins: Users can record their daily weight measurements to monitor their progress over time.
 Caloric Limit Calculation: The app calculates the user's caloric intake limit based on weight fluctuations.
-Progress Visualization: Users can visualize their weight progress through a dynamic progress bar and counter.
+Progress Visualization: Users can visualize their weight progress through a dynamic progress bar and counter
 Responsive Design: The app is designed to be responsive and accessible on various devices, including desktops, tablets, and smartphones.
 Usage
 
